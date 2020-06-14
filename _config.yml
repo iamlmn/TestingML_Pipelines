@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
-title: [Testing and Mointoring ML Pipelines]
+title: [Testing and Monitoring ML Pipelines]
 description: [My notes and views on testing an ML/AI application]
 logo: assets/lmn.png
-show_downloads: ["true"]
+show_downloads: ["false"]

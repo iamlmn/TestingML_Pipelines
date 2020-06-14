@@ -247,19 +247,40 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 > QA engineers are used to expressing the results of testing in terms of quality, such as defect leakage or the severity of defects. But the validation of models based on machine algorithms will produce approximations—not exact results. The engineers and stakeholders will need to determine the acceptable level of assurance, within a certain range for each outcome.
 
 
-
-General Terms used in QA
+General Terms used in QA that developers should know.
 ## Software Testing Types
 SOFTWARE TESTING TYPES listed here are a few out of the hundreds of software testing types. The different types of testing you can perform on a software is limited only by the degree of your imagination. Here, we provide you summary of some of the major ones.
 
-LIST OF SOFTWARE TESTING TYPES
-Type	Summary
-Smoke Testing	Smoke Testing, also known as “Build Verification Testing”, is a type of software testing that comprises of a non-exhaustive set of tests that aim at ensuring that the most important functions work.
-Functional Testing	Functional Testing is a type of software testing whereby the system is tested against the functional requirements/specifications.
-Usability Testing	Usability Testing is a type of software testing done from an end-user’s perspective to determine if the system is easily usable.
-Security Testing	Security Testing is a type of software testing that intends to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders.
-Performance Testing	Performance Testing is a type of software testing that intends to determine how a system performs in terms of responsiveness and stability under a certain load.
-Regression Testing	Regression testing is a type of software testing that intends to ensure that changes (enhancements or defect fixes) to the software have not adversely affected it.
-Compliance Testing	Compliance Testing [also known as conformance testing, regulation testing, standards testing] is a type of testing to determine the compliance of a system with internal or external standards.
+ - LIST OF SOFTWARE TESTING TYPES
+ 
+| 		Type		  | 		Summary 																																									  |
+| --------------------|: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Smoke Testing 	  |	Smoke Testing, also known as “Build Verification Testing”, is a type of software testing that comprises of a non-exhaustive set of tests that aim at ensuring that the most important functions work.
+| Functional Testing  | 	Functional Testing is a type of software testing whereby the system is tested against the functional requirements/specifications.|
+| Usability Testing   |	Usability Testing is a type of software testing done from an end-user’s perspective to determine if the system is easily usable.|
+| Security Testing    |	Security Testing is a type of software testing that intends to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders.|
+| Performance Testing |	Performance Testing is a type of software testing that intends to determine how a system performs in terms of responsiveness and stability under a certain load.|
+| Regression Testing  |	Regression testing is a type of software testing that intends to ensure that changes (enhancements or defect fixes) to the software have not adversely affected it. |
+| Compliance Testing  |	Compliance Testing [also known as conformance testing, regulation testing, standards testing] is a type of testing to determine the compliance of a system with internal or external standards. |
+
+## Software Testing Methods
+SOFTWARE TESTING METHODS listed here are the major methods used while conducting various Software Testing Types during various Software Testing Levels:
+
+Method	Summary
+Black Box Testing	A software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional. Test design techniques include Equivalence partitioning, Boundary Value Analysis, Cause-Effect Graphing.
+White Box Testing	A software testing method in which the internal structure/design/implementation of the item being tested is known to the tester. Test design techniques include Control flow testing, Data flow testing, Branch testing, Path testing.
+Gray Box Testing	A software testing method which is a combination of Black Box Testing method and White Box Testing method.
+Agile Testing	A method of software testing that follows the principles of agile software development.
+Ad Hoc Testing	A method of software testing without any planning and documentation.
 
 
+## Software Testing levels
+SOFTWARE TESTING LEVELS are the different stages of the software development lifecycle where testing is conducted. There are four levels of software testing: Unit >> Integration >> System >> Acceptance.
+Level	Summary
+Unit Testing	A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed.
+Integration Testing	A level of the software testing process where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.
+System Testing	A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements.
+Acceptance Testing	A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery.
+
+
+Intreseted in STLC?(If yes, visit this site))[http://softwaretestingfundamentals.com/software-testing-basics/]
