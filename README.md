@@ -9,8 +9,8 @@ Some machine learning applications are intended
 to learn properties of data sets where the correct
 answers are not already known to human users. It is
 challenging to test such ML software, because there is
-no reliable test oracle. We describe a software testing
-approach aimed at addressing this problem. 
+no reliable test oracle. <!-- We describe a software testing
+approach aimed at addressing this problem.  -->
 
 
 ML Programs : "Programs which were written in
@@ -44,13 +44,13 @@ Let’s take a closer look at what each of these means in the context of Machine
 
 ### What is the difference between testing traditional Software testing and testing a ML application?
 
-> In Traditional software we check out exactly the output is as compared to expected. Example the (1) case. We set expectation 11 and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
-> We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage reader to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
+> In Traditional software we check out exactly the output is as compared to expected. For example We set expectation '11' and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
+> We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
 
 ## Functional Testing or E2E
  > Functional testing is also sometimes called E2E testing, or browser testing. They all refer to the same thing.
  > Functional testing is defined as the testing of complete functionality of some application. In practice with web apps, this means using some tool to automate a browser, which is then used to click around on the pages to test the application.
- >You might use a unit test to test an individual function and an integration test to check that two parts of the play nice. Functional tests are on a whole another level. While you can have hundreds of unit tests, you usually want to have only a small amount of functional tests. This is mainly because functional tests can be difficult to write and maintain due to their very high complexity. They also run very slowly, because they simulate real user interaction on a web page, so even page load times become a factor.
+ > You might use a unit test to test an individual function and an integration test to check that two parts of the play nice. Functional tests are on a whole another level. While you can have hundreds of unit tests, you usually want to have only a small amount of functional tests. This is mainly because functional tests can be difficult to write and maintain due to their very high complexity. They also run very slowly, because they simulate real user interaction on a web page, so even page load times become a factor.
  > Because of all this, you shouldn’t try to make very fine grained functional tests. You don’t want to test a single function, despite the name “functional” perhaps hinting at it. Instead, functional tests 
  should be used for testing common user interactions. If you would manually test a certain flow of your app in a browser, such as registering an account, you could make that into a functional test.
  > While in unit and integration tests you would validate the results in code, functional test results should be validated the same way as you would validate it if you were a user of the page. Going with the registration example, you could validate it by checking that the browser is redirected to a “thanks for registering page”.
@@ -194,6 +194,7 @@ def test_regression_score():
  
     assert_equal(result, 50.0)
 ```
+
 There won’t be as many of these kinds of tests as unit tests, but they would still be part of your CI pipeline. You would use these to check the end to end functionality for a component and would therefore test more major scenarios.
 
 ##### When is Integration Testing performed?
@@ -236,7 +237,6 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 #### Systems integration testing
 > AI systems are built to hook into other systems and solve problems in a much larger context. For all of these integrations to work correctly, it’s necessary to perform a complete assessment of the AI system and its various connection points. With more and more systems absorbing AI characteristics, it’s vital that they’re tested carefully.
 
-
 ## Testing machine learning systems
 > The goal of ML systems is to acquire knowledge on their own, without being explicitly programmed. This requires a consistent stream of data to be fed into the system — a much more dynamic approach that traditional testing is based on (fixed input = fixed output). Accordingly, QA experts will need to think differently about implementing test strategies for ML systems.
 
@@ -250,6 +250,36 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 > QA engineers are used to expressing the results of testing in terms of quality, such as defect leakage or the severity of defects. But the validation of models based on machine algorithms will produce approximations—not exact results. The engineers and stakeholders will need to determine the acceptable level of assurance, within a certain range for each outcome.
 
 ***
+
+## ML Validation
+Why? “To exhibit the perfect uselessness of knowing the answer to the wrong question.” Ursula K. Le Guin.
+
+Now that we have tested our code, we need to also test that the ML component is solving the problem that we are trying to solve. When we talk about product development, the raw results of an ML model (however accurate based on statistical methods) are almost never the desired end outputs. These results are usually combined with other business rules before consumed by a user or another application. For this reason, we need to validate that the model solves the user problem, and not only that the accuracy/f1-score/other statistical measure is high enough.
+
+How does this help us?
+
+It ensures that the model actually helps the product solve the problem at hand
+For example, a model that classifies a snake bite as deadly or not with 80% accuracy is not a good model if the 20% that is incorrect leads to patients not getting the treatment that they need.
+It ensures that the values produced by the model make sense in terms of the industry
+For example, a model that predicts changes in price with 70% accuracy is not a good model, if the end price displayed to the user has a value that’s too low/high to make sense in that industry/market.
+It provides an extra layer of documentation of the decisions made, helping engineers joining the team later in the process.
+It provides visibility of the ML components of the product in a common language understood by clients, product managers and engineers in the same way.
+This kind of validation should be ran periodically (either through the CI pipeline or a cron job), and its results should be made visible to the organisation. This ensures that progress in the data science components is visible to the organisation, and ensures that issues caused by changes or stale data are caught early.
+
+***
+
+# Conclusion
+After all “Magic’s just science that we don’t understand yet” Arthur C. Clarke.
+
+ML components can be tested in various ways, bringing us the following advantages:
+
+- Resulting in a data driven approach to ensure that the code does what is expected
+- Ensuring that we can refactor and cleanup code without breaking the functionality of the product
+- Documenting functionality, decisions and previous bugs
+- Providing visibility of the progress and state of the ML components of a product
+- So don’t be afraid, if you have the skillset to write the code, you have the skillset to write the test and gain all of the above advantages 
+
+
 
 # General Terms used in QA that developers should know.
 ## Software Testing Types
