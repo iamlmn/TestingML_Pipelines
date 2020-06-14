@@ -1,6 +1,7 @@
 # TestingML_Pipelines
-My notes on software testing  ML pipelines
+My notes on software testing/ Monitoring  ML pipelines
 
+With the increasing popularity of Machine learning today, it is important to focus the testing aspect of ML application. Testing of any ML application will not be same as testing traditional software. It has become a debatable topic. Many literature categorised ML application as non-testable. However, many are now trying to make it testable and coming up many innovative approaches. All are very much technical and normal users without technical knowledge find difficulties. Therefore, here I have tried to explain the difference of testing traditional software and ML application in a simple terminology without going into any technical term.
 
 Some machine learning applications are intended
 to learn properties of data sets where the correct
@@ -20,23 +21,29 @@ When it comes to data products, a lot of the time there is a misconception that 
 
 Let’s take a look at traditional testing methodologies and how we can apply these to our data/ML pipelines.
 
-Testing pyramid : 
+# Testing pyramid : 
 Your standard simplified testing pyramid looks like this:
 
-# PYRAMID PIC
+## PYRAMID PIC
 
 This pyramid is a representation of the types of tests that you would write for an application. We start with a lot of Unit Tests, which test a single piece of functionality in isolation of others. Then we write Integration Tests which check whether bringing our isolated components together works as expected. Lastly we write UI or acceptance tests, which check that the application works as expected from the user’s perspective.
 
 When it comes to data products, the pyramid is not so different. We have more or less the same levels.
 
 
-# ML Test Pyramid
+## ML Test Pyramid
 
 Note that the UI tests would still take place for the product, but this blog post focuses on tests most relevant to the data pipeline.
 
 Let’s take a closer look at what each of these means in the context of Machine Learning, and with the help fo some sci-fi authors.
 
-# What are Unit tests?
+
+### What is the difference between testing traditional Software testing and testing a ML application?
+
+> In Traditional software we check out exactly the output is as compared to expected. Example the (1) case. We set expectation 11 and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
+> We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage reader to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
+
+### What are Unit tests?
 “It’s a system for testing your thoughts against the universe, and seeing whether they match” - Isaac Asimov.
 
 Most of the code in a data pipeline consists of a data cleaning process. Each of the functions used to do data cleaning has a clear goal. Let’s say, for example, that one of the features that we have chosen for out model is the change of a value between the previous and current day
@@ -84,7 +91,7 @@ In addition to checking that the code does what is intended, unit tests also giv
 Lastly, these tests not only check that the code does what is intended, but also help us document the expectations that we had when creating the functionality.
 
 
-# What is Integration testing?
+### What is Integration testing?
 Because “The unclouded eye was better, no matter what it saw.” Frank Herbert.
 
 These tests aim to determine whether modules that have been developed separately work as expected when brought together. In terms of a data pipeline, these can check that:
