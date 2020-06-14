@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: [Testing and Mointoring ML Pipelines]
 description: [My notes and views on testing an ML/AI application]
-# logo: [/assets/lmn.png]
+logo: [https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/lmn.png]
 show_downloads: ["true"]
