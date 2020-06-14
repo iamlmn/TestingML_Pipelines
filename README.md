@@ -57,7 +57,7 @@ Let’s take a closer look at what each of these means in the context of Machine
 
 ### Unit tests
 “It’s a system for testing your thoughts against the universe, and seeing whether they match” - Isaac Asimov.
-##### what is unit testing?
+### what is unit testing?
 > Unit testing is the practice of testing small pieces of code, typically individual functions, alone and isolated. If your test uses some external resource, like the network or a database, it’s not a unit test.
 > Unit tests should be fairly simple to write. A unit tests should essentially just give the function that’s tested some inputs, and then check what the function outputs is correct. In practice this can vary, because if your code is poorly designed, writing unit tests can be difficult. Because of that, unit testing is the only testing method which also helps you write better code – Code that’s hard to unit test usually has poor design.
 > In a sense, unit testing is the backbone. You can use unit tests to help design your code and keep it as a safety net when doing changes, and the same methods you use for unit testing are also applicable to the other types of testing. All the other test types are also constructed from similar pieces as unit tests, they are just more complex and less precise.
@@ -113,7 +113,7 @@ Lastly, these tests not only check that the code does what is intended, but also
 ### Integration testing
 Because “The unclouded eye was better, no matter what it saw.” Frank Herbert.
 
-###### what is integration testing?
+### what is integration testing?
 > As the name suggests, in integration testing the idea is to test how parts of the system work together – the integration of the parts. Integration tests are similar to unit tests, but there’s one big difference: while unit tests are isolated from other components, integration tests are not. For example, a unit test for database access code would not talk to a real database, but an integration test would.
 > Integration testing is mainly useful for situations where unit testing is not enough. Sometimes you need to have tests to verify that two separate systems – like a database and your app – work together correctly, and that calls for an integration test. As a result, when validating integration test results, you could for example validate a database related test by querying the database to check the database state is correct.
 > Integration tests are often slower than unit tests because of the added complexity. They also might need some set up or configuration, such as the setting up of a test database. This makes writing and maintaining them harder than unit tests, so you should focus on unit tests unless you absolutely need an integration test.
