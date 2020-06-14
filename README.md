@@ -24,6 +24,46 @@ When it comes to data products, a lot of the time there is a misconception that 
 Let’s take a look at traditional testing methodologies and how we can apply these to our data/ML pipelines.
 
 ---
+# General Terms used in QA that developers should know.
+## Software Testing Types
+SOFTWARE TESTING TYPES listed here are a few out of the hundreds of software testing types. The different types of testing you can perform on a software is limited only by the degree of your imagination. Here, we provide you summary of some of the major ones.
+
+ - LIST OF SOFTWARE TESTING TYPES
+
+| 		Type		  | 		Summary 																																									  |
+| --------------------|: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Smoke Testing 	  |	Smoke Testing, also known as “Build Verification Testing”, is a type of software testing that comprises of a non-exhaustive set of tests that aim at ensuring that the most important functions work.
+| Functional Testing  | 	Functional Testing is a type of software testing whereby the system is tested against the functional requirements/specifications.|
+| Usability Testing   |	Usability Testing is a type of software testing done from an end-user’s perspective to determine if the system is easily usable.|
+| Security Testing    |	Security Testing is a type of software testing that intends to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders.|
+| Performance Testing |	Performance Testing is a type of software testing that intends to determine how a system performs in terms of responsiveness and stability under a certain load.|
+| Regression Testing  |	Regression testing is a type of software testing that intends to ensure that changes (enhancements or defect fixes) to the software have not adversely affected it. |
+| Compliance Testing  |	Compliance Testing [also known as conformance testing, regulation testing, standards testing] is a type of testing to determine the compliance of a system with internal or external standards. |
+
+## Software Testing Methods
+SOFTWARE TESTING METHODS listed here are the major methods used while conducting various Software Testing Types during various Software Testing Levels:
+
+| Method			| Summary 																																												 |
+| ------------------|: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|Black Box Testing  |	A software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional. Test design techniques include Equivalence partitioning, Boundary Value Analysis, Cause-Effect Graphing. |
+| White Box Testing	|A software testing method in which the internal structure/design/implementation of the item being tested is known to the tester. Test design techniques include Control flow testing, Data flow testing, Branch testing, Path testing. |
+| Gray Box Testing  |	A software testing method which is a combination of Black Box Testing method and White Box Testing method. |
+|Agile Testing      |	A method of software testing that follows the principles of agile software development. |
+| Ad Hoc Testing    |	A method of software testing without any planning and documentation. |
+
+
+## Software Testing levels
+SOFTWARE TESTING LEVELS are the different stages of the software development lifecycle where testing is conducted. There are four levels of software testing: Unit >> Integration >> System >> Acceptance.
+
+| Level 				|	Summary 																																										  
+											  |
+| ---------------------	| : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Unit Testing 			| A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed. 														  |
+| Integration Testing	| A level of the software testing process where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. 		 					   |
+| System Testing 		| A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements. 		  						|
+| Acceptance Testing	| A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery. |
+
+***
 
 # Testing pyramid : 
 Your standard simplified testing pyramid looks like this:
@@ -47,17 +87,9 @@ Let’s take a closer look at what each of these means in the context of Machine
 > In Traditional software we check out exactly the output is as compared to expected. For example We set expectation '11' and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
 > We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
 
-## Functional Testing or E2E
- > Functional testing is also sometimes called E2E testing, or browser testing. They all refer to the same thing.
- > Functional testing is defined as the testing of complete functionality of some application. In practice with web apps, this means using some tool to automate a browser, which is then used to click around on the pages to test the application.
- > You might use a unit test to test an individual function and an integration test to check that two parts of the play nice. Functional tests are on a whole another level. While you can have hundreds of unit tests, you usually want to have only a small amount of functional tests. This is mainly because functional tests can be difficult to write and maintain due to their very high complexity. They also run very slowly, because they simulate real user interaction on a web page, so even page load times become a factor.
- > Because of all this, you shouldn’t try to make very fine grained functional tests. You don’t want to test a single function, despite the name “functional” perhaps hinting at it. Instead, functional tests 
- should be used for testing common user interactions. If you would manually test a certain flow of your app in a browser, such as registering an account, you could make that into a functional test.
- > While in unit and integration tests you would validate the results in code, functional test results should be validated the same way as you would validate it if you were a user of the page. Going with the registration example, you could validate it by checking that the browser is redirected to a “thanks for registering page”.
- > You should use functional tests if you have some repeated tests you do manually in the browser, but be careful to not make them too fine-grained, as they can easily become a nightmare to maintain. I know, because I’ve seen it happen many times.
+---
 
-
-## Unit testing
+## 1. Unit testing
 “It’s a system for testing your thoughts against the universe, and seeing whether they match” - Isaac Asimov.
 ### what is unit testing?
 > Unit testing is the practice of testing small pieces of code, typically individual functions, alone and isolated. If your test uses some external resource, like the network or a database, it’s not a unit test.
@@ -112,7 +144,7 @@ In addition to checking that the code does what is intended, unit tests also giv
 Lastly, these tests not only check that the code does what is intended, but also help us document the expectations that we had when creating the functionality.
 
 
-## Integration testing
+## 2.Integration testing
 Because “The unclouded eye was better, no matter what it saw.” Frank Herbert.
 
 ### what is integration testing?
@@ -129,7 +161,7 @@ The model training can handle the data provided to it and outputs results (ensur
 
 So if we take the unit tested function above and we add the following two functions:
 
-``` python
+```python
 def remove_nan_size(asimov_dataset):
     return asimov_dataset.dropna(subset=['robot_takeover_type'])
  
@@ -142,7 +174,7 @@ def clean_data(asimov_dataset):
 
 Then we can test that combining the functions inside clean_data will yield the expected result with the following code:
 
-``` python
+```python
 def test_cleanup():
     asimov_dataset_input = pd.DataFrame({
         'total_naughty_robots': [1, 4, 5, 3],
@@ -162,7 +194,7 @@ def test_cleanup():
 
 Now let’s say that the next thing we do is feed the above data to a logistic regression model.
 
-``` python
+```python
 from sklearn.linear_model import LogisticRegression
  
 def get_reression_training_score(asimov_dataset, seed=9787):
@@ -180,7 +212,7 @@ Although we don’t know the expectation, we can ensure that we always result in
 The data is consumable by the model (a label exists for every input, the types of the data are accepted by the type of model chosen, etc)
 We are able to refactor our code in the future, without breaking the end to end functionality.
 We can ensure that the results are always the same by providing the same seed for the random generator. All major libraries allow you to set the seed (Tensorflow is a bit special, as it requires you to set the seed via numpy, so keep this in mind). The test could look as follows:
-``` python
+```python
 from numpy.testing import assert_equal
  
 def test_regression_score():
@@ -196,6 +228,25 @@ def test_regression_score():
 ```
 
 There won’t be as many of these kinds of tests as unit tests, but they would still be part of your CI pipeline. You would use these to check the end to end functionality for a component and would therefore test more major scenarios.
+
+In case if we want to test the module as a whole, by taking a known data and including the processing part, the scores may change. You must recieve in a similar range though. A thought on that is to check if the expected value is in an acceptable range. For example lets say we retrieve the CV scores for a model and it may change slightly w.r.t randomized validation set selection with-in the K-Folds.
+
+```python
+
+def test_cv_score(self, range=5):
+    asimov_dataset_input = pd.DataFrame({
+        'total_naughty_robots': [1, 4, 5, 3, 6, 5],
+        'robot_takeover_type': ['A', 'B', np.nan, 'A', 'D', 'D']
+    })
+ 	
+ 	processed_input_data = process_data(asimov_dataset_input)
+    result = get_cv_score(processed_input_data, seed=1234)
+    expected = .60
+ 
+    assert abs(result - expected) < range/100
+```
+In the above example we are checking if thee difference is acceptable. While the range has been configured to be set based on the test data (known).
+
 
 ##### When is Integration Testing performed?
  > Integration Testing is the second level of testing performed after Unit Testing and before System Testing.
@@ -216,6 +267,17 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
  - As far as possible, automate your tests, especially when you use the Top Down or Bottom Up approach, since regression testing is important each time you integrate a unit, and manual regression testing can be inefficient
 
 ***
+
+## 3. Functional Testing or E2E
+ > Functional testing is also sometimes called E2E testing, or browser testing. They all refer to the same thing.
+ > Functional testing is defined as the testing of complete functionality of some application. In practice with web apps, this means using some tool to automate a browser, which is then used to click around on the pages to test the application.
+ > You might use a unit test to test an individual function and an integration test to check that two parts of the play nice. Functional tests are on a whole another level. While you can have hundreds of unit tests, you usually want to have only a small amount of functional tests. This is mainly because functional tests can be difficult to write and maintain due to their very high complexity. They also run very slowly, because they simulate real user interaction on a web page, so even page load times become a factor.
+ > Because of all this, you shouldn’t try to make very fine grained functional tests. You don’t want to test a single function, despite the name “functional” perhaps hinting at it. Instead, functional tests 
+ should be used for testing common user interactions. If you would manually test a certain flow of your app in a browser, such as registering an account, you could make that into a functional test.
+ > While in unit and integration tests you would validate the results in code, functional test results should be validated the same way as you would validate it if you were a user of the page. Going with the registration example, you could validate it by checking that the browser is redirected to a “thanks for registering page”.
+ > You should use functional tests if you have some repeated tests you do manually in the browser, but be careful to not make them too fine-grained, as they can easily become a nightmare to maintain. I know, because I’ve seen it happen many times.
+
+ ***
 
 # Challenges and potential complications in ML testing
  - Huge volumes of collected data present storage and analytics challenges — scrubbing this amount of data can be incredibly time-consuming.
@@ -258,13 +320,13 @@ Now that we have tested our code, we need to also test that the ML component is 
 
 How does this help us?
 
-It ensures that the model actually helps the product solve the problem at hand
-For example, a model that classifies a snake bite as deadly or not with 80% accuracy is not a good model if the 20% that is incorrect leads to patients not getting the treatment that they need.
-It ensures that the values produced by the model make sense in terms of the industry
-For example, a model that predicts changes in price with 70% accuracy is not a good model, if the end price displayed to the user has a value that’s too low/high to make sense in that industry/market.
-It provides an extra layer of documentation of the decisions made, helping engineers joining the team later in the process.
-It provides visibility of the ML components of the product in a common language understood by clients, product managers and engineers in the same way.
-This kind of validation should be ran periodically (either through the CI pipeline or a cron job), and its results should be made visible to the organisation. This ensures that progress in the data science components is visible to the organisation, and ensures that issues caused by changes or stale data are caught early.
+1. It ensures that the model actually helps the product solve the problem at hand
+2. For example, a model that classifies a snake bite as deadly or not with 80% accuracy is not a good model if the 20% that is incorrect leads to patients not getting the treatment that they need.
+3. It ensures that the values produced by the model make sense in terms of the industry
+4. For example, a model that predicts changes in price with 70% accuracy is not a good model, if the end price displayed to the user has a value that’s too low/high to make sense in that industry/market.
+5. It provides an extra layer of documentation of the decisions made, helping engineers joining the team later in the process.
+6. It provides visibility of the ML components of the product in a common language understood by clients, product managers and engineers in the same way.
+7. This kind of validation should be ran periodically (either through the CI pipeline or a cron job), and its results should be made visible to the organisation. This ensures that progress in the data science components is visible to the organisation, and ensures that issues caused by changes or stale data are caught early.
 
 ***
 
@@ -280,45 +342,6 @@ ML components can be tested in various ways, bringing us the following advantage
 - So don’t be afraid, if you have the skillset to write the code, you have the skillset to write the test and gain all of the above advantages 
 
 
-
-# General Terms used in QA that developers should know.
-## Software Testing Types
-SOFTWARE TESTING TYPES listed here are a few out of the hundreds of software testing types. The different types of testing you can perform on a software is limited only by the degree of your imagination. Here, we provide you summary of some of the major ones.
-
- - LIST OF SOFTWARE TESTING TYPES
-
-| 		Type		  | 		Summary 																																									  |
-| --------------------|: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Smoke Testing 	  |	Smoke Testing, also known as “Build Verification Testing”, is a type of software testing that comprises of a non-exhaustive set of tests that aim at ensuring that the most important functions work.
-| Functional Testing  | 	Functional Testing is a type of software testing whereby the system is tested against the functional requirements/specifications.|
-| Usability Testing   |	Usability Testing is a type of software testing done from an end-user’s perspective to determine if the system is easily usable.|
-| Security Testing    |	Security Testing is a type of software testing that intends to uncover vulnerabilities of the system and determine that its data and resources are protected from possible intruders.|
-| Performance Testing |	Performance Testing is a type of software testing that intends to determine how a system performs in terms of responsiveness and stability under a certain load.|
-| Regression Testing  |	Regression testing is a type of software testing that intends to ensure that changes (enhancements or defect fixes) to the software have not adversely affected it. |
-| Compliance Testing  |	Compliance Testing [also known as conformance testing, regulation testing, standards testing] is a type of testing to determine the compliance of a system with internal or external standards. |
-
-## Software Testing Methods
-SOFTWARE TESTING METHODS listed here are the major methods used while conducting various Software Testing Types during various Software Testing Levels:
-
-| Method			| Summary 																																												 |
-| ------------------|: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|Black Box Testing  |	A software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional. Test design techniques include Equivalence partitioning, Boundary Value Analysis, Cause-Effect Graphing. |
-| White Box Testing	|A software testing method in which the internal structure/design/implementation of the item being tested is known to the tester. Test design techniques include Control flow testing, Data flow testing, Branch testing, Path testing. |
-| Gray Box Testing  |	A software testing method which is a combination of Black Box Testing method and White Box Testing method. |
-|Agile Testing      |	A method of software testing that follows the principles of agile software development. |
-| Ad Hoc Testing    |	A method of software testing without any planning and documentation. |
-
-
-## Software Testing levels
-SOFTWARE TESTING LEVELS are the different stages of the software development lifecycle where testing is conducted. There are four levels of software testing: Unit >> Integration >> System >> Acceptance.
-
-| Level 				|	Summary 																																										  
-											  |
-| ---------------------	| : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Unit Testing 			| A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed. 														  |
-| Integration Testing	| A level of the software testing process where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. 		 					   |
-| System Testing 		| A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements. 		  						|
-| Acceptance Testing	| A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery. |
 
 
 Intreseted in STLC? If yes, [visit this site](http://softwaretestingfundamentals.com/software-testing-basics/)
