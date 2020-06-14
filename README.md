@@ -103,7 +103,7 @@ Unit tests are also great for preventing regressions – bugs that occur repeate
 
 Most of the code in a data pipeline consists of a data cleaning process. Each of the functions used to do data cleaning has a clear goal. Let’s say, for example, that one of the features that we have chosen for out model is the change of a value between the previous and current day
 
-``` python
+```python
 def add_difference(asimov_dataset):
     asimov_dataset['total_naughty_robots_previous_day'] =        
         asimov_dataset['total_naughty_robots'].shift(1)
@@ -116,7 +116,7 @@ def add_difference(asimov_dataset):
         'robot_takeover_type']]
 ```
 Here we know that for a given input we expect a certain output, therefore, we can test this with the following code:
-``` python
+```python
 import pandas as pd
 from pandas.testing import assert_frame_equal
 import numpy as np
@@ -234,21 +234,26 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 <!-- ![alt text](https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/correlation.png "correlation") -->
 <img src="assets/correlation.png">
 
-In case if we want to test the module as a whole, by taking a known data and including the processing part, the scores may change. You must recieve in a similar range though. A thought on that is to check if the expected value is in an acceptable range. For example lets say we retrieve the CV scores for a model and it may change slightly w.r.t randomized validation set selection with-in the K-Folds.
+But regarding the scores recieved on a known data, the scores may be different, but must be in a similar range though. A thought on that is to check if the expected value is in an acceptable range. For example lets say we retrieve the CV scores for a model and it may change slightly w.r.t randomized validation set selection with-in the K-Folds.
 
 ```python
+ 
+def test_regression_score(self, range=10):
+	'''
+	Range : Threshold you excpet the values to be in.
 
-def test_cv_score(self, range=5):
+	'''
     asimov_dataset_input = pd.DataFrame({
         'total_naughty_robots': [1, 4, 5, 3, 6, 5],
         'robot_takeover_type': ['A', 'B', np.nan, 'A', 'D', 'D']
     })
- 	
-    processed_input_data = process_data(asimov_dataset_input)
-    result = get_cv_score(processed_input_data, seed=1234)
-    expected = .60
  
-    assert abs(result - expected) < range/100
+    result = get_reression_training_score(asimov_dataset_input, seed=1234)
+    expected = 40.0
+ 
+    assert_equal(result, 50.0)
+
+    assert abs(result - expected)/100 < range/100
 ```
 In the above example we are checking if thee difference is acceptable. While the range has been configured to be set based on the test data (known).
 
@@ -291,7 +296,7 @@ In the above example we are checking if thee difference is acceptable. While the
  - Defects quickly fester and grow more complex in ML systems.
 
 
-## Key aspects of testing ML pipelines/Apps.
+## Key aspects of testing ML pipelines.
 #### Data validation
 > The key to successful AI/ML is good data. Before it’s supplied to an AI system, your data should be scrubbed, cleaned, and validated. Your QA team should be wary of human bias and variety that can complicate the system’s interpretation of the data — think of a car navigation system or smartphone assistant trying to interpret a rare accent.
 
@@ -345,7 +350,6 @@ ML components can be tested in various ways, bringing us the following advantage
 - Documenting functionality, decisions and previous bugs
 - Providing visibility of the progress and state of the ML components of a product
 - So don’t be afraid, if you have the skillset to write the code, you have the skillset to write the test and gain all of the above advantages 
-
 
 
 
