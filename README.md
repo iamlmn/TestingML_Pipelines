@@ -278,11 +278,11 @@ SOFTWARE TESTING METHODS listed here are the major methods used while conducting
 ## Software Testing levels
 SOFTWARE TESTING LEVELS are the different stages of the software development lifecycle where testing is conducted. There are four levels of software testing: Unit >> Integration >> System >> Acceptance.
 | Level 			|	Summary 																																													|
-| ------------------| : s------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-Unit Testing 		|	A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed. |
-Integration Testing	| A level of the software testing process where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.|
-System Testing 		|	A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements. |
-Acceptance Testing	|A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery. |
+| ------------------| : ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Unit Testing 		|	A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed. |
+| Integration Testing	| A level of the software testing process where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.|
+| System Testing 		|	A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements. |
+| Acceptance Testing	|A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery. |
 
 
 Intreseted in STLC?(If yes, visit this site))[http://softwaretestingfundamentals.com/software-testing-basics/]
