@@ -23,6 +23,8 @@ When it comes to data products, a lot of the time there is a misconception that 
 
 Let’s take a look at traditional testing methodologies and how we can apply these to our data/ML pipelines.
 
+---
+
 # Testing pyramid : 
 Your standard simplified testing pyramid looks like this:
 
@@ -45,7 +47,7 @@ Let’s take a closer look at what each of these means in the context of Machine
 > In Traditional software we check out exactly the output is as compared to expected. Example the (1) case. We set expectation 11 and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
 > We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage reader to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
 
-### Functional Testing or E2E
+## Functional Testing or E2E
  > Functional testing is also sometimes called E2E testing, or browser testing. They all refer to the same thing.
  > Functional testing is defined as the testing of complete functionality of some application. In practice with web apps, this means using some tool to automate a browser, which is then used to click around on the pages to test the application.
  >You might use a unit test to test an individual function and an integration test to check that two parts of the play nice. Functional tests are on a whole another level. While you can have hundreds of unit tests, you usually want to have only a small amount of functional tests. This is mainly because functional tests can be difficult to write and maintain due to their very high complexity. They also run very slowly, because they simulate real user interaction on a web page, so even page load times become a factor.
@@ -55,7 +57,7 @@ Let’s take a closer look at what each of these means in the context of Machine
  > You should use functional tests if you have some repeated tests you do manually in the browser, but be careful to not make them too fine-grained, as they can easily become a nightmare to maintain. I know, because I’ve seen it happen many times.
 
 
-### Unit tests
+## Unit testing
 “It’s a system for testing your thoughts against the universe, and seeing whether they match” - Isaac Asimov.
 ### what is unit testing?
 > Unit testing is the practice of testing small pieces of code, typically individual functions, alone and isolated. If your test uses some external resource, like the network or a database, it’s not a unit test.
@@ -110,7 +112,7 @@ In addition to checking that the code does what is intended, unit tests also giv
 Lastly, these tests not only check that the code does what is intended, but also help us document the expectations that we had when creating the functionality.
 
 
-### Integration testing
+## Integration testing
 Because “The unclouded eye was better, no matter what it saw.” Frank Herbert.
 
 ### what is integration testing?
@@ -212,8 +214,9 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
  - Make sure that each unit is unit tested before you start Integration Testing.
  - As far as possible, automate your tests, especially when you use the Top Down or Bottom Up approach, since regression testing is important each time you integrate a unit, and manual regression testing can be inefficient
 
+***
 
-## Challenges and potential complications
+# Challenges and potential complications in ML testing
  - Huge volumes of collected data present storage and analytics challenges — scrubbing this amount of data can be incredibly time-consuming.
  - Data may be collected during unanticipated events or circumstances, making it difficult to gather and use for training purposes.
  - Human bias may appear in training and testing data sets.
@@ -246,8 +249,9 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 #### Communicating test results
 > QA engineers are used to expressing the results of testing in terms of quality, such as defect leakage or the severity of defects. But the validation of models based on machine algorithms will produce approximations—not exact results. The engineers and stakeholders will need to determine the acceptable level of assurance, within a certain range for each outcome.
 
+***
 
-General Terms used in QA that developers should know.
+# General Terms used in QA that developers should know.
 ## Software Testing Types
 SOFTWARE TESTING TYPES listed here are a few out of the hundreds of software testing types. The different types of testing you can perform on a software is limited only by the degree of your imagination. Here, we provide you summary of some of the major ones.
 
@@ -287,4 +291,4 @@ SOFTWARE TESTING LEVELS are the different stages of the software development lif
 | Acceptance Testing	| A level of the software testing process where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery. |
 
 
-Intreseted in STLC?(If yes, visit this site))[http://softwaretestingfundamentals.com/software-testing-basics/]
+Intreseted in STLC? If yes, [visit this site](http://softwaretestingfundamentals.com/software-testing-basics/)
