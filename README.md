@@ -233,6 +233,7 @@ There won’t be as many of these kinds of tests as unit tests, but they would s
 
 <!-- ![alt text](https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/correlation.png "correlation") -->
 <img src="assets/correlation.png">
+
 In case if we want to test the module as a whole, by taking a known data and including the processing part, the scores may change. You must recieve in a similar range though. A thought on that is to check if the expected value is in an acceptable range. For example lets say we retrieve the CV scores for a model and it may change slightly w.r.t randomized validation set selection with-in the K-Folds.
 
 ```python
