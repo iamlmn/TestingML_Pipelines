@@ -1,4 +1,4 @@
-# TestingML_Pipelines
+# STML_Pipelines
 My notes on software testing/ Monitoring  ML pipelines. 
 
 > "All code is guilty, until proven innocent".
@@ -68,14 +68,14 @@ SOFTWARE TESTING LEVELS are the different stages of the software development lif
 # Testing pyramid : 
 Your standard simplified testing pyramid looks like this:
 
-## PYRAMID PIC
+![alt text](https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/testing-pyramid.png "Test pyramid")
 
 This pyramid is a representation of the types of tests that you would write for an application. We start with a lot of Unit Tests, which test a single piece of functionality in isolation of others. Then we write Integration Tests which check whether bringing our isolated components together works as expected. Lastly we write UI or acceptance tests, which check that the application works as expected from the user’s perspective.
 
 When it comes to data products, the pyramid is not so different. We have more or less the same levels.
 
 
-## ML Test Pyramid
+![alt text](https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/ml_test_pyramid.png "ML pyramid")
 
 Note that the UI tests would still take place for the product, but this blog post focuses on tests most relevant to the data pipeline.
 
@@ -229,6 +229,7 @@ def test_regression_score():
 
 There won’t be as many of these kinds of tests as unit tests, but they would still be part of your CI pipeline. You would use these to check the end to end functionality for a component and would therefore test more major scenarios.
 
+![alt text](https://github.com/iamlmn/TestingML_Pipelines/blob/master/assets/correlation.png "correlation")
 In case if we want to test the module as a whole, by taking a known data and including the processing part, the scores may change. You must recieve in a similar range though. A thought on that is to check if the expected value is in an acceptable range. For example lets say we retrieve the CV scores for a model and it may change slightly w.r.t randomized validation set selection with-in the K-Folds.
 
 ```python
@@ -239,7 +240,7 @@ def test_cv_score(self, range=5):
         'robot_takeover_type': ['A', 'B', np.nan, 'A', 'D', 'D']
     })
  	
- 	processed_input_data = process_data(asimov_dataset_input)
+    processed_input_data = process_data(asimov_dataset_input)
     result = get_cv_score(processed_input_data, seed=1234)
     expected = .60
  
