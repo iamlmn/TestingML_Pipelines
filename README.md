@@ -238,9 +238,9 @@ But regarding the scores recieved on a known data, the scores may be different, 
 
 ```python
  
-def test_regression_score(self, range=10):
+def test_regression_score(self, _range=10):
 	'''
-	Range : Threshold you excpet the values to be in.
+	_range : Threshold you excpet the values to be in.
 
 	'''
     asimov_dataset_input = pd.DataFrame({
@@ -253,7 +253,7 @@ def test_regression_score(self, range=10):
  
     assert_equal(result, 50.0)
 
-    assert abs(result - expected)/100 < range/100
+    assert abs(result - expected)/100 < _range/100
 ```
 In the above example we are checking if thee difference is acceptable. While the range has been configured to be set based on the test data (known).
 
