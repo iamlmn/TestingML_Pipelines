@@ -28,7 +28,7 @@ Let’s take a look at traditional testing methodologies and how we can apply th
 ## Software Testing Types
 SOFTWARE TESTING TYPES listed here are a few out of the hundreds of software testing types. The different types of testing you can perform on a software is limited only by the degree of your imagination. Here, we provide you summary of some of the major ones.
 
- - LIST OF SOFTWARE TESTING TYPES
+##### LIST OF SOFTWARE TESTING TYPES
 
 | 		Type		  | 		Summary 																																									  |
 | --------------------|: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -87,7 +87,7 @@ Let’s take a closer look at what each of these means in the context of Machine
 ### What is the difference between testing traditional Software testing and testing a ML application?
 
 > In Traditional software we check out exactly the output is as compared to expected. For example We set expectation '11' and I’ll check output is 11 or not. Here the person knows just a rule about addition and that is why answer is 11. However, rest of the examples are testing of ML application, where output is not exactly what I expected, but all are correct and close to my expectation. Hence, in ML application we’ll not test how exact the output is, rather how close the output to correctness.
-> We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking. With this basic understanding, I like to encourage to read any articles which are available in internet about testing of traditional application vs testing ML application, they will understand better. I'm very much open to have any new idea, new thought on this topic from all of you.
+> We need to understand that while you are testing ML application, you are basically testing a software which itself learns, not just sequence of rules. With same data as input, you might get different output in two different run. Therefore, testing ML application requires an entirely different approach and the test team also needs to be elevated with ML skill. Eventually, to adopt ML application, we also need a different culture across organisation to sync our expectation. Even support engineer also needs this skill to handle any incident for ML application. Most important we need to come out from traditional mindset and embrace a new way of thinking.
 
 ---
 
